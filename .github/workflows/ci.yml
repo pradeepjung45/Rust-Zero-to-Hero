@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        components: rustfmt, clippy
+    
+    - name: Cache cargo registry
+      uses: actions/cache@v3
+      with:
+        path: ~/.cargo/registry
+        key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+    
+    - name: Cache cargo index
+      uses: actions/cache@v3
+      with:
+        path: ~/.cargo/git
+        key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
+    
+    - name: Cache cargo build
+      uses: actions/cache@v3
+      with:
+        path: target
+        key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
+
+    - name: Check formatting
+      run: cargo fmt --all -- --check
+
+    - name: Run clippy
+      run: cargo clippy --all-targets --all-features -- -D warnings
+
+    - name: Test Day 1 (minimal dependencies)
+      run: |
+        cp day01-only.toml Cargo.toml
+        cargo check
+        cargo test
+        cargo run --bin day01
+
+    - name: Quick syntax check script
+      run: |
+        chmod +x scripts/test-day01.sh
+        ./scripts/test-day01.sh
+
+  check-docs:
+    name: Check Documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Check README links
+      run: |
+        # Basic check that important files exist
+        test -f README.md
+        test -f GETTING-STARTED.md
+        test -f docs/day01-guide.md
+        test -f src/day01/morning/mod.rs
+        test -f src/day01/afternoon/mod.rs
+        echo "✅ All documentation files present"
+
+    - name: Verify project structure
+      run: |
+        # Check that the project structure is as expected
+        test -d src/day01
+        test -d docs
+        test -d scripts
+        test -f .gitignore
+        test -f LICENSE
+        test -f CONTRIBUTING.md
+        echo "✅ Project structure verified"

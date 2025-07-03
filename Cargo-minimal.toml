@@ -1,0 +1,23 @@
+# Minimal Cargo.toml for Day 1-3 (Rust fundamentals only)
+[package]
+name = "rust_solana_zero_to_hero"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A comprehensive learning path for Rust and Solana development"
+
+[dependencies]
+# Only essential dependencies for Rust learning
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Development dependencies
+[dev-dependencies]
+# Empty for now
+
+# Only Day 1 binary for now
+[[bin]]
+name = "day01"
+path = "src/day01/main.rs"

@@ -1,0 +1,170 @@
+# Rust & Solana Learning Project - .gitignore
+# This keeps your GitHub repository clean and professional
+
+# Rust/Cargo build artifacts
+/target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Rust analyzer cache
+.rust-analyzer/
+
+# Environment and configuration files
+.env
+.env.local
+.env.*.local
+
+# Solana CLI files (when we get to Solana development)
+.config/solana/
+test-ledger/
+validator-keypair.json
+*-keypair.json
+
+# Anchor framework files (when we get to Anchor)
+.anchor/
+programs/.bin/
+target/
+node_modules/
+dist/
+.nyc_output/
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+.cache/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+build/
+dist/
+out/
+
+# Test artifacts
+test-results/
+coverage/
+
+# Local development files
+.local/
+local/
+
+# Backup files
+*.bak
+*.backup
+
+# Documentation build artifacts
+book/
+docs/_build/
+
+# Python cache (if using Python tools)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Node.js dependencies (for client-side development later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript build artifacts (for client development)
+*.tsbuildinfo
+
+# Solana program artifacts
+*.so
+programs/target/
+
+# Local keypairs and secrets (IMPORTANT: Never commit these!)
+id.json
+keypair.json
+wallet.json
+*-keypair.json
+*.key
+*.pem
+
+# Development databases
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE workspace files
+*.code-workspace
+.vscode/settings.json
+.vscode/launch.json
+
+# Temporary test files
+test_*
+*_test_*
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+*.exe
+*.msi
+*.msm
+*.msp
+
+# Linux
+*~
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json

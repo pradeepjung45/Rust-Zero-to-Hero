@@ -1,0 +1,18 @@
+# Ultra-minimal Cargo.toml for Day 1 only
+# Copy this over Cargo.toml when you want to test Day 1 without any dependencies
+
+[package]
+name = "day01_rust_basics"
+version = "0.1.0"
+edition = "2021"
+
+# NO dependencies - pure Rust only!
+[dependencies]
+
+# NO dev dependencies
+[dev-dependencies]
+
+# Only Day 1 binary
+[[bin]]
+name = "day01"
+path = "src/day01/main.rs"
