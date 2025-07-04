@@ -3,7 +3,7 @@
 
 // Phase 1: Rust Fundamentals (Days 1-3)
 mod day01;  // Day 1: Rust Basics - Syntax & Ownership
-// mod day02;  // Day 2: Control Flow & Data Structures  
+mod day02;  // Day 2: Control Flow & Data Structures  
 // mod day03;  // Day 3: Traits, Generics & Error Handling
 
 // Phase 2: Solana Blockchain Basics (Days 4-5)
@@ -30,12 +30,12 @@ fn main() {
     println!("Phase 5 (Days 10-12): Advanced Topics & Best Practices");
     println!();
     println!("🎯 Step-by-Step Learning (No Heavy Dependencies!):");
-    println!("1. Read docs/day01-guide.md for detailed explanations");
-    println!("2. Study code examples in src/day01/morning/ and src/day01/afternoon/");
+    println!("1. Read docs/day01-guide.md and docs/day02-guide.md for detailed explanations");
+    println!("2. Study code examples in src/day01/ and src/day02/ directories");
     println!("3. Practice by modifying the examples");
-    println!("4. When ready to test: Use day01-only.toml or run ./scripts/test-day01.sh");
+    println!("4. Run individual days: cargo run --bin day01 or cargo run --bin day02");
     println!();
-    println!("📖 Current Status: Day 1 is ready for learning!");
+    println!("📖 Current Status: Day 1 ✅ and Day 2 ✅ are ready for learning!");
     println!("💡 Tip: Focus on understanding concepts before running code");
 
     // Uncomment these as you progress through the course:
@@ -44,7 +44,7 @@ fn main() {
     day01::run_examples();
 
     // Future days will be added as you progress
-    // day02::run_examples();
+    day02::run_examples();
     // day03::run_examples();
     // etc.
 }

@@ -102,7 +102,7 @@ fn lifetime_introduction() {
     {
         let string2 = String::from("xyz");
         result = longest(&string1, &string2);
-        println!("   The longest string is: {}", result);s
+        println!("   The longest string is: {}", result);
     }
     // result is still valid here because it refers to string1
     // which is still in scope
